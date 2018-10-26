@@ -1,0 +1,17 @@
+commit 61ed785b74788b900a1dc184c67d72c50bbc476a (HEAD -> master, origin/master)
+Author: Vasepulv <v.sepulveda.2@ug.uchile.cl>
+Date:   Thu Oct 25 22:58:25 2018 -0300
+
+    Fin
+
+commit 63f5d5db9d765df6f8710552397e746ba58fe44a
+Author: Vasepulv <v.sepulveda.2@ug.uchile.cl>
+Date:   Thu Oct 25 22:23:09 2018 -0300
+
+    Agregando archivos
+
+commit 15ec3ef0b44cc64533c8bbe1584d82e25294ba35
+Author: Vasepulv <v.sepulveda.2@ug.uchile.cl>
+Date:   Wed Oct 24 12:18:19 2018 -0300
+
+    Primera Subida
