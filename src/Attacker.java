@@ -6,7 +6,8 @@
  */
 public interface Attacker extends GameElements {
 
-    int getAttackPoints();
+    public double getAttackPoints();
 
     public void attack(GameElements gameElements);
+
 }

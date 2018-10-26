@@ -5,65 +5,121 @@
  * @version 1.0
  */
 public class ArcherUnit extends Unit {
-    private int hitPoints;
-    private int attackPoints;
+    private double hitPoints;
+    private double attackPoints;
 
     public ArcherUnit(){
-
+        hitPoints=30;
+        attackPoints=12;
     }
 
+    /**
+     * This method represents the attack between the entity that calls the method and the one that is attacked.
+     * @param gameElements element that is attacked
+     */
     @Override
     public void attack(GameElements gameElements) {
-        gameElements.isAttackedByArcherUnit(this);
+        if(isAlive()){
+            gameElements.isAttackedByArcherUnit(this);
+        }
     }
 
+    /**
+     *  Returns the hitPoints of the instance of ArcherUnit that called it.
+     * @return hitPoints
+     */
     @Override
-    public int getHitPoints() {
+    public double getHitPoints() {
+        if(hitPoints<0){
+            hitPoints=0;
+        }
+        if(hitPoints>60){
+            hitPoints=60;
+        }
         return hitPoints;
     }
 
+    /**
+     * Returns the attackPoints of the instance of ArcherUnit that called it.
+     * @return attackPoints
+     */
     @Override
-    public int getAttackPoints() {
+    public double getAttackPoints() {
         return attackPoints;
     }
 
+    /**
+     * Returns true if the entity that called it has positive hitPoints, false if not.
+     * @return whether the entity is alive
+     */
     @Override
     public boolean isAlive() {
-        return false;
+        return !(hitPoints == 0);
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by an InfantryUnit, reducing the hitPoints of the
+     * ArcherUnit.
+     * @param infantryUnit that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedByInfantryUnit(InfantryUnit infantryUnit) {
-
+        hitPoints=hitPoints-infantryUnit.getAttackPoints()*1.2;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by an ArcherUnit, reducing the hitPoints of the ArcherUnit
+     * that was attacked.
+     * @param archerUnit that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedByArcherUnit(ArcherUnit archerUnit) {
-
+        hitPoints=hitPoints-archerUnit.getAttackPoints()*1.2;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by a Monk, increasing the hitPoints of the ArcherUnit that was
+     * attacked.
+     * @param monk that "attacked" the ArcherUnit
+     */
     @Override
     public void isAttackedByMonk(Monk monk) {
-
+        hitPoints=hitPoints+monk.getAttackPoints()*0.5;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by a CalvaryUnit, reducing the hitPoints of the ArcherUnit.
+     * @param calvaryUnit that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedByCalvaryUnit(CalvaryUnit calvaryUnit) {
-
+        hitPoints=hitPoints-calvaryUnit.getAttackPoints()*1.5;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by a SiegeUnit, reducing the hitPoints of the ArcherUnit.
+     * @param siegeUnit that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedBySiegeUnit(SiegeUnit siegeUnit) {
-
+        hitPoints=hitPoints-siegeUnit.getAttackPoints()*1.5;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by a Villager, reducing the hitPoints of the ArcherUnit.
+     * @param villager that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedByVillager(Villager villager) {
-
+        hitPoints=hitPoints-villager.getAttackPoints()*1.0;
     }
 
+    /**
+     * Represents the action of the ArcherUnit being attacked by a Castle, reducing the hitPoints of the ArcherUnit.
+     * @param castle that attacked the ArcherUnit
+     */
     @Override
     public void isAttackedByCastle(Castle castle) {
-
+        hitPoints=hitPoints-castle.getAttackPoints()*1.2;
     }
 }

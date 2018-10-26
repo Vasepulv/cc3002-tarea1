@@ -1,5 +1,5 @@
 /**
- *
+ * An interface that represents the basic actions that all elements in the game do.
  * @author Valentina Sepulveda
  * @version 1.0
  */
@@ -7,7 +7,7 @@ public interface GameElements {
 
     boolean isAlive();
 
-    int getHitPoints();
+    double getHitPoints();
 
     void isAttackedByInfantryUnit(InfantryUnit infantryUnit);
 

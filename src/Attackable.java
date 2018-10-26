@@ -1,5 +1,5 @@
 /**
- * This interface represents the workings of Attacker Objects, which can not attack, but can be attacked.
+ * This interface represents the workings of Attackable Objects, which can not attack, but can be attacked.
  *
  * @author Valentina Sepulveda
  * @version 1.0
@@ -8,7 +8,7 @@ public interface Attackable extends GameElements {
 
     boolean isAlive();
 
-    int getHitPoints();
+    double getHitPoints();
 
     void isAttackedByInfantryUnit(InfantryUnit infantryUnit);
 
